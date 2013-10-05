@@ -184,6 +184,7 @@
 
 				}
 
+				controls.update();
 				render();
 				stats.update();
 
@@ -206,7 +207,6 @@
 				particleLight2.position.x = - Math.sin( timer * 5 ) * 4;
 				particleLight2.position.y = -Math.cos( timer * 3 ) * 4;
 				particleLight2.position.z = Math.cos( timer * 5 ) * 4;
-				controls.update();
 				renderer.render( scene, camera );
 
 			}
