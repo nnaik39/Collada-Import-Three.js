@@ -27,15 +27,24 @@
 		</style>
 	</head>
 	<body>
+		<div id="info">
+			<a href="http://threejs.org" target="_blank">three.js</a> -
+			Microscope by <a href="http://sketchup.google.com/3dwarehouse/details?mid=56dddd78f2a6214e85e472c5c09ca225&ct=mdrm&prevstart=0" target="_blank">jpkleman</a>
+		</div>
+
 		<script src="build/three.min.js"></script>
 
 		<script src="js/loaders/ColladaLoader.js"></script>
-
+		<script src="js/OrbitControls.js"></script>
 		<script src="js/Detector.js"></script>
 		<script src="js/libs/stats.min.js"></script>
-		<script src="js/TransformControls.js"></script>
+		
+
 		<script>
 
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var controls;
 			var container, stats;
 
 			var camera, scene, renderer, objects;
@@ -45,17 +54,16 @@
 
 			var loader = new THREE.ColladaLoader();
 			loader.options.convertUpAxis = true;
-			loader.load( './models/collada/brainmodel/brainmodel.dae', function ( collada ) {
+			loader.load( './models/collada/microscope/models/skpfile.dae', function ( collada ) {
 
 				dae = collada.scene;
 				skin = collada.skins[ 0 ];
 
-				dae.scale.x = dae.scale.y = 1;
-				dae.scale.z = 1;
+				dae.scale.x = dae.scale.y = dae.scale.z = 0.2;
 				dae.updateMatrix();
-				dae.position.x = 20;
+				dae.position.x = -4;
 				dae.position.y = 0;
-				dae.position.z = 0;
+				dae.position.z = 4;
 				init();
 				animate();
 
@@ -69,7 +77,13 @@
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
 				camera.position.set( 2, 2, 3 );
 
+
+
 				scene = new THREE.Scene();
+
+					controls = new THREE.OrbitControls( camera );
+				controls.addEventListener( 'change', render );
+
 
 				// Grid
 
@@ -132,33 +146,10 @@
 				//
 
 				window.addEventListener( 'resize', onWindowResize, false );
-				window.addEventListener( 'keydown', function ( event ) {
-		            //console.log(event.which);
-		            		switch ( event.keyCode ) {
-		        			 case 81: // Q
-		                			control.setSpace( control.space == "local" ? "world" : "local" );
-		        				break;
-		              			case 87: // W
-		                			control.setMode( "translate" );
-		                			break;
-		              			case 69: // E
-		                			control.setMode( "rotate" );
-		                			break;
-		              			case 82: // R
-		                			control.setMode( "scale" );
-		                			break;
-						case 187:
-						case 107: // +,=,num+
-							control.setSize( control.size + 0.1 );
-							break;
-						case 189:
-						case 10: // -,_,num-
-							control.setSize( Math.max(control.size - 0.1, 0.1 ) );
-							break;
-		            }
+
 			}
 
-			function onWindowResize() { 
+			function onWindowResize() {
 
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
@@ -201,6 +192,7 @@
 
 				}
 
+				controls.update();
 				render();
 				stats.update();
 
@@ -208,14 +200,14 @@
 
 			function render() {
 
-				//var timer = Date.now() * 0.0004;
-				var timer = 1;
-				camera.position.x = Math.cos( timer ) * 20;
+				var timer = Date.now() * 0.0004;
+
+/*				camera.position.x = Math.cos( timer ) * 20;
 				camera.position.y = 2;
 				camera.position.z = Math.sin( timer ) * 20;
 
 				camera.lookAt( scene.position );
-
+*/
 				particleLight.position.x = Math.sin( timer * 5 ) * 4;
 				particleLight.position.y = Math.cos( timer * 3 ) * 4;
 				particleLight.position.z = Math.cos( timer * 5 ) * 4;
