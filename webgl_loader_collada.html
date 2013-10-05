@@ -63,7 +63,7 @@
 			} );
 
 			function init() {
-container = document.createElement( 'div' );
+				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
@@ -206,7 +206,7 @@ container = document.createElement( 'div' );
 				particleLight2.position.x = - Math.sin( timer * 5 ) * 4;
 				particleLight2.position.y = -Math.cos( timer * 3 ) * 4;
 				particleLight2.position.z = Math.cos( timer * 5 ) * 4;
-
+				controls.update();
 				renderer.render( scene, camera );
 
 			}
