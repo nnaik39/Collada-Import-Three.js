@@ -34,7 +34,7 @@
 		<script src="js/Detector.js"></script>
 		<script src="js/libs/stats.min.js"></script>
 		<script src="js/OrbitControls.js"></script>
-		
+		<script src="js/jquery.js"></script>
 		<script>
 			var controls;
 			var container, stats;
@@ -43,6 +43,9 @@
 			var particleLight, pointLight;
 			var particleLight2, pointLight2;
 			var dae, skin;
+			var x = 40;
+			var y = 27;
+			var z = 39;
 
 			var loader = new THREE.ColladaLoader();
 			loader.options.convertUpAxis = true;
@@ -137,7 +140,8 @@
 				container.appendChild( stats.domElement );
 
 				//
-
+				
+				document.addEventListener( 'keydown', onDocumentKeyDown, false);
 				window.addEventListener( 'resize', onWindowResize, false );
 
 			}
@@ -149,6 +153,24 @@
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
+			}
+			
+			function onDocumentKeyDown(event) 
+			{
+				switch ( event.keyCode) 
+				{	
+					case 38: x += 0.1; break ; //up
+					case 40: x -= 0.1; break ; //down
+					case 37: z += 0.1; break ; //left
+					case 39: z -= 0.1; break ; //right
+					//case 87: WaveLength+=0.1; break ; //w
+					//case 83: WaveLength-=0.1; break ; //s
+					//case 65: WaveLength+=0.1; break ; //a
+					//case 68: WaveLength -=0.1; break ; //d
+					//case 84: $("#Controls").slideToggle("normal"); 
+							//$("#Title_And_Instructions").fadeToggle("normal");
+							//break;
+				}
 			}
 
 			//
@@ -210,6 +232,10 @@
 				particleLight2.position.y = -Math.cos( timer * 3 ) * 4;
 				particleLight2.position.z = Math.cos( timer * 5 ) * 4;
 				renderer.render( scene, camera );
+					
+				dae.position.x = x;
+				dae.position.y = 0;
+				dae.position.z = z;
 
 			}
 
