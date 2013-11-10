@@ -43,7 +43,7 @@
 			var particleLight, pointLight;
 			var particleLight2, pointLight2;
 			var dae, skin;
-			var x = 30;
+			var x = 45;
 			var y = 27;
 			var z = 39;
 
@@ -80,7 +80,7 @@
 				controls.addEventListener( 'change', render );
 
 
-				// Gridg
+				// Grid
 
 				var size = 14, step = 1;
 
@@ -139,6 +139,7 @@
 				stats.domElement.style.top = '0px';
 				container.appendChild( stats.domElement );
 
+				//
 				
 				document.addEventListener( 'keydown', onDocumentKeyDown, false);
 				window.addEventListener( 'resize', onWindowResize, false );
@@ -216,12 +217,12 @@
 			function render() {
 
 				var timer = Date.now() * 0.0004;
-				var timer = 1;
-				camera.position.x = Math.cos( timer ) * 20;
-				camera.position.y = 2;
-				camera.position.z = Math.sin( timer ) * 20;
+				//var timer = 1;
+				//camera.position.x = Math.cos( timer ) * 20;
+				//camera.position.y = 2;
+				//camera.position.z = Math.sin( timer ) * 20;
 
-				camera.lookAt( scene.position );
+				//camera.lookAt( scene.position );
 
 				particleLight.position.x = Math.sin( timer * 5 ) * 4;
 				particleLight.position.y = Math.cos( timer * 3 ) * 4;
