@@ -139,7 +139,6 @@
 				stats.domElement.style.top = '0px';
 				container.appendChild( stats.domElement );
 
-				//
 				
 				document.addEventListener( 'keydown', onDocumentKeyDown, false);
 				window.addEventListener( 'resize', onWindowResize, false );
@@ -234,7 +233,7 @@
 				renderer.render( scene, camera );
 					
 				dae.position.x = x;
-				dae.position.y = y;
+				dae.position.y = 0;
 				dae.position.z = z;
 
 			}
