@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -34,7 +35,7 @@
 		<script src="js/Detector.js"></script>
 		<script src="js/libs/stats.min.js"></script>
 		<script src="js/OrbitControls.js"></script>
-		<script src="js/jquery.js"></script>div id="info">
+		<script src="js/jquery.js"></script>
 		<script>
 			var controls;
 			var container, stats;
@@ -44,8 +45,8 @@
 			var particleLight2, pointLight2;
 			var dae, skin;
 			var x = 0;
-			var y = 0;
-			var z = 0;
+			var y = 27;
+			var z = 39;
 
 			var loader = new THREE.ColladaLoader();
 			loader.options.convertUpAxis = true;
@@ -69,8 +70,8 @@
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
-				camera = new THREE.PerspectiveCamera( 0, window.innerWidth / window.innerHeight, 1, 2000 );
-				camera.position.set( 0, 0, 0 );
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.set( 2, 2, 3 );
 
 
 
@@ -234,7 +235,7 @@
 				renderer.render( scene, camera );
 					
 				dae.position.x = x;
-				dae.position.y = y;
+				dae.position.y = 0;
 				dae.position.z = z;
 
 			}
