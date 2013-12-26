@@ -50,7 +50,7 @@
 			var dae, skin; 
 			var x = 25;
 			var y = 27;
-			var z = 39;
+			var z = 0;
 
 			var loader = new THREE.ColladaLoader();
 			loader.options.convertUpAxis = true;
@@ -164,8 +164,8 @@
 			{
 				switch ( event.keyCode) 
 				{	
-					case 68: x += 0.1; break ; //up
-					case 65: x -= 0.1; break ; //down
+					case 68: x += 0.1; break ; //right
+					case 65: x -= 0.1; break ; //left
 					case 87: z += 0.1; break ; //left
 					case 83: z -= 0.1; break ; //right
 					//case 87: WaveLength+=0.1; break ; //w
