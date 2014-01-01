@@ -93,7 +93,15 @@
                                 animate(); 
 
                         } );
-                                
+
+<div id="navbar"> 
+  <ul> 
+	<li><a href="#">LinkHere</a></li> 
+	<li><a href="#">LinkHere</a></li> 
+	<li><a href="#">LinkHere</a></li> 
+	<li><a href="#">LinkHere</a></li> 
+	<li><a href="#">LinkHere</a></li> 
+  </ul>
                         function init() {
                                 container = document.createElement( 'div' );
                                 document.body.appendChild( container );
@@ -128,14 +136,7 @@
 
                                 var line = new THREE.Line( geometry, material, THREE.LinePieces );
                                 scene.add( line );
-//<div id="navbar"> 
-  //<ul> 
-	//<li><a href="#">LinkHere</a></li> 
-	//<li><a href="#">LinkHere</a></li> 
-	//<li><a href="#">LinkHere</a></li> 
-	//<li><a href="#">LinkHere</a></li> 
-	//<li><a href="#">LinkHere</a></li> 
-  //</ul> 
+ 
                                 // Add the COLLADA
 
                                 scene.add( dae );
