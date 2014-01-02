@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
         <head>
                 <title>three.js webgl - collada</title>
                 <meta charset="utf-8">
@@ -25,8 +25,46 @@
 
                         a { color: skyblue }
                 </style>
+                <style type="text/css"> 
+			<!-- 
+ 
+				#navbar ul { 
+					margin: 0; 
+					padding: 5px; 
+					list-style-type: none; 
+					text-align: center; 
+					background-color: #000; 
+					  } 
+ 
+				#navbar ul li {  
+					display: inline; 
+					  } 
+ 
+				#navbar ul li a { 
+					text-decoration: none; 
+					padding: .2em 1em; 
+					color: #fff; 
+					background-color: #000; 
+					  } 
+ 
+                                #navbar ul li a:hover { 
+	                                color: #000; 
+	                                background-color: #fff; 
+	                                 } 
+ 
+                                --> 
+        </style> 
         </head>
         <body>
+        <div id="navbar"> 
+                <ul> 
+	                <li><a href="#">LinkHere</a></li> 
+	                <li><a href="#">LinkHere</a></li> 
+	                <li><a href="#">LinkHere</a></li> 
+	                <li><a href="#">LinkHere</a></li> 
+	                <li><a href="#">LinkHere</a></li> 
+                </ul>
+        </div>
                 <script src="build/three.min.js"></script>
 
                 <script src="js/loaders/ColladaLoader.js"></script>
@@ -64,7 +102,7 @@
                                 animate(); 
 
                         } );
-                                
+
                         function init() {
                                 container = document.createElement( 'div' );
                                 document.body.appendChild( container );
@@ -99,7 +137,7 @@
 
                                 var line = new THREE.Line( geometry, material, THREE.LinePieces );
                                 scene.add( line );
-
+ 
                                 // Add the COLLADA
 
                                 scene.add( dae );
@@ -154,6 +192,7 @@
                                 renderer.setSize( window.innerWidth, window.innerHeight );
 
                         }
+
                         
                         function onDocumentKeyDown(event) 
                         {
