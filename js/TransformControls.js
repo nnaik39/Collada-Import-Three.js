@@ -1,4 +1,4 @@
-
+	
 /**
  * @author arodic / https://github.com/arodic
  */
@@ -111,7 +111,8 @@ THREE.TransformGizmo = function () {
 			if (child instanceof THREE.Mesh) {			
 				var tempGeometry = new THREE.Geometry();
 				THREE.GeometryUtils.merge( tempGeometry, child );
-				child.geometry = tempGeometry;
+		
+		child.geometry = tempGeometry;
 				child.position.set( 0, 0, 0 );
 				child.rotation.set( 0, 0, 0 );
 				child.scale.set( 1, 1, 1 );
@@ -120,7 +121,6 @@ THREE.TransformGizmo = function () {
 		});
 
 	}
-
 	this.hide = function () {
 
 		for ( var j in this.handles.children ) this.handles.children[j].visible = false;
